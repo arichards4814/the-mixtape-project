@@ -12,6 +12,7 @@ class UsersController < ActionController::Base
 
         if @user.valid?
             @user.save
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
             flash[:errors] = @user.errors.full_messages

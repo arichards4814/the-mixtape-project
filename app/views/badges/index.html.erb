@@ -1,0 +1,5 @@
+<% @badges.each do |badge| %>
+<img class="" src="<%= image_path(badge.image_url) %>" style = "height:200px" alt="Badge">
+<%= badge.title %>
+<%= badge.description %>
+<% end%>
