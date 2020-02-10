@@ -1,0 +1,11 @@
+
+<h2>Log In:<h2>
+<%= form_for @user, url: root_path do |f| %>
+  Username: <%= f.text_field :user_name %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% if @error %>
+<h1><%= @error %></h1>
+<% end %>

@@ -1,0 +1,14 @@
+<%# app/views/user/new.html.erb %>
+<%= form_for :user, url: '/users' do |f| %>
+  Username: <%= f.text_field :user_name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% if @errors %>
+    <% @errors.each do |error|%>
+        <p><%= error %></p>
+    <%end%>
+<%end%>

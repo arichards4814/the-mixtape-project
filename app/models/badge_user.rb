@@ -1,0 +1,2 @@
+class BadgeUser < ApplicationRecord
+end

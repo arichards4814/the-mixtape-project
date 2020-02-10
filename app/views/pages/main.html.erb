@@ -1,0 +1,10 @@
+<h2>test</h2>
+
+<% if session[:user_id] %>
+    <h2>You are logged in as: <%= session[:user_id] %> </h2>
+    <%= button_to "Logout", logout_path %>
+<% end %>
+
+<% if @notice %>
+<h3> <%= @notice %> </h3>
+<% end %>
