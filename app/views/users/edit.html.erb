@@ -1,0 +1,13 @@
+<%= form_for @user do |f| %>
+  Update Email: <%= f.text_field :email %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% if @errors %>
+    <% @errors.each do |error|%>
+        <p><%= error %></p>
+    <%end%>
+<%end%>
+
+
+<%= button_to "Delete Account", @user, :method => "delete" %>

@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
     root 'pages#main'
 
-    resources :users, only: [:new, :create, :show, :edit, :update, :delete]
+    resources :users, only: [:new, :create, :show, :edit, :update]
 
     get '/login', to: 'pages#login', as: 'login'
     post '/', to: 'pages#create', as: 'logged'
     post '/logout', to: 'pages#destroy', as: 'logout'
+    delete '/users/:id', to: "users#destroy"
 
 end
