@@ -1,18 +1,22 @@
-class PagesController < ActionController::Base
+class PagesController < ApplicationController
+    
+    before_action :authorized, except: [:main, :login, :create]
 
 def main
     @notice = flash[:notice]
+
+    
 end
 
 def login
-    @user = User.new
     @error = flash[:error_message]
 end
 
 def create
-    @user = User.find_by(user_name: params[:user][:user_name])
- 
-    if @user && @user.authenticate(params[:user][:password])
+    ## these nested needs to be checked
+    @user = User.find_by(user_name: params[:user_name])
+    
+    if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to root_path
     else 

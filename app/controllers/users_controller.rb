@@ -1,5 +1,6 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
 
+    before_action :authorized, except: [:new]
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -22,6 +23,8 @@ class UsersController < ActionController::Base
 
     def show
 
+        ## made current_user in the application controller
+        ## @user = current_user
     end
 
     def edit

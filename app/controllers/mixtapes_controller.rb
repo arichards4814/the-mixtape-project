@@ -1,5 +1,6 @@
-class MixtapesController < ActionController::Base
+class MixtapesController < ApplicationController
 
+    before_action :authorized
     before_action :find_mixtape, only: [:show, :edit, :update, :destroy]
 
 def index
@@ -17,7 +18,7 @@ end
 
 def create
     @mixtape = Mixtape.new(mixtapes_params)
-
+    ##need @mixtape.user = current_user
     if @mixtape.valid?
         @mixtape.save
         redirect_to mixtape_path(@mixtape)
@@ -51,6 +52,7 @@ private
 
 def mixtapes_params
     params.require(:mixtape).permit(:title, :message, :cassette_url, :background_url, :user_id)
+    #shoul get rid of user id here.. and take it out of the form.
 end
 
 def find_mixtape

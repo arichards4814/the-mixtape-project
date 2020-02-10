@@ -1,5 +1,6 @@
-class BadgesController < ActionController::Base
+class BadgesController < ApplicationController
 
+    before_action :authorized
     before_action :find_badge, only: [:show, :edit, :update]
 
     def index

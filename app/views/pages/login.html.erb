@@ -1,9 +1,16 @@
 
+<% if !session[:user_id]%>
+<h2>Please log in or create a new account.<h2>
+<% end %>
 <h2>Log In:<h2>
-<%= form_for @user, url: root_path do |f| %>
-  Username: <%= f.text_field :user_name %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Submit" %>
+<%# needs to be a form tag... not a form_for %>
+
+
+
+<%= form_tag '/logged' do %>
+  Username: <%= text_field_tag :user_name %>
+  Password: <%= password_field_tag :password %>
+<%= submit_tag "Submit"%>
 <% end %>
 
 <% if @error %>

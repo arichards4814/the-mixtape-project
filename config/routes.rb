@@ -3,16 +3,24 @@ Rails.application.routes.draw do
 
     root 'pages#main'
 
-    resources :users, only: [:new, :create, :show, :edit, :update]
+    resources :users, only: [:create, :show, :edit, :update]
     resources :mixtapes
     resources :badges, only: [:index ,:new, :create, :show, :edit, :update]
 
 
     ## should change our users route to /signup
-    #get '/signup' to: 'users#new', as: "new_user"
+    get '/signup', to: 'users#new', as: "new_user"
+    #get '/profile' to: 'users#show', 
+    #get '/:username', to: 'users#show', as: "user"
+
+
     get '/login', to: 'pages#login', as: 'login'
-    post '/', to: 'pages#create', as: 'logged'
+    post '/logged', to: 'pages#create', as: 'logged'
     post '/logout', to: 'pages#destroy', as: 'logout'
     delete '/users/:id', to: "users#destroy"
+
+    ##get '/login' to: 'sessions#new'
+    ##post '/sessions' to: 'sessions#create'
+    ##delete '/sessions' to: 'sessions#destroy'
 
 end

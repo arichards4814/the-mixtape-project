@@ -1,5 +1,19 @@
-<% @badges.each do |badge| %>
-<img class="" src="<%= image_path(badge.image_url) %>" style = "height:200px" alt="Badge">
-<%= badge.title %>
-<%= badge.description %>
-<% end%>
+
+<h2>Badges:</h2>
+<div class="container">
+  <div class="row">
+    <% @badges.each do |badge|%>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card text-center" style="width: 300px; height: 250px; margin-bottom: 30px">
+         <a href="<%= badge_path(badge.id)%>"> <img class="card-img-top" src="<%= image_path(badge.image_url) %>" style = "position: relative; width:50%; text-align: center; margin-top: 15px" alt="Badge"><a>
+          <div class="card-body">
+          
+            <h3 class="card-title" style="text-align:center;"><%= badge.title %></h3>
+            
+          </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>

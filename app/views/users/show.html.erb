@@ -1,1 +1,20 @@
 <h2><%= @user.user_name %><h2>
+<img style="height:150px" src="<%= image_path @user.current_badge%>">
+
+<div class="container">
+  <div class="row">
+    <% @user.mixtapes.each do |mixtape|%>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card" style="width: 18rem;">
+         <a href="<%= mixtape_path(mixtape.id)%>"> <img class="card-img-top" src="<%= image_path(mixtape.cassette_url) %>" style = "position: relative; height:100%;" alt="Cassette"><a>
+          <div class="card-body">
+          
+            <h3 class="card-title" style="text-align:center;"><%= mixtape.title %></h3>
+            <h5 class="card-text"><%= mixtape.message %></h5>
+            
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
