@@ -1,14 +1,30 @@
 <%# app/views/user/new.html.erb %>
-<%= form_for :user, url: '/users' do |f| %>
-  Username: <%= f.text_field :user_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-<% end %>
+<br>
+<div class="row">
+<div class="col-md-4">
+</div>
+  <div class="col-md-4">
+  <h2>Create a Login:</h2>
+      <%= form_for :user, url: '/users' do |f| %>
+      <div class="form-group">
+        Username: <%= f.text_field :user_name, :class => "form-control" %>
+        Email: <%= f.text_field :email, :class => "form-control" %>
+        Password: <%= f.password_field :password, :class => "form-control" %>
+        Password Confirmation: <%= f.password_field :password_confirmation, :class => "form-control" %>
+        <%= f.submit "Submit", :class => "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+</div>
 
-<% if @errors %>
+<div class="row">
+<div class="col-md-4">
+</div>
+  <div class="col-md-4">
+ <% if @errors %>
     <% @errors.each do |error|%>
         <p><%= error %></p>
     <%end%>
 <%end%>
+  </div>
+</div>

@@ -1,17 +1,19 @@
 <%= form_for @mixtape do |f|%>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :message %>
-<%= f.text_area :message %>
-<%= f.label :cassette_url, "Cassette Style: " %>
-<%= f.select :cassette_url, [['The 80s','cassettes/eighties.png'],['Classic Blue','cassettes/classic_blue.png'],['Classic Green','cassettes/classic_green.png'],
-            ['Classic Orange','cassettes/classic_orange.png'],['Cotton Candy','cassettes/cotton_candy.png'],['Barney','cassettes/barney.png'],['Label Maker','cassettes/label_maker.png'],
-            ['Retro White','cassettes/retro_white.png'],['Stars','cassettes/star.png'],['Switch','cassettes/switch.png'],['Valentine','cassettes/valentine.png']] %>
-<%= f.label :backgound_url, "Background: " %>
-<%= f.select :background_url, [['Blue Green','background_1.png'],['Pink Blue','background_2.png'],['Yellow Blue','background_3.png'],
-            ['Purple Pink','background_4.png'],['Orange Blue','background_5.png'],['Yellow Green','background_6.png'],['Orange White','background_7.png'],['Brown White','background_8.png']] %>
-<%= f.hidden_field :user_id, :value => session[:user_id] %>
-<%= f.submit%>
+<div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control", :id => "title",  :onkeyup => "updateText()"%>
+    <%= f.label :message %>
+    <%= f.text_area :message, :class => "form-control" %>
+    <%= f.label :cassette_url, "Cassette Style: "%><br>
+    <%= f.select :cassette_url, [['The 80s','cassettes/eighties.png'],['Classic Blue','cassettes/classic_blue.png'],['Classic Green','cassettes/classic_green.png'],
+                ['Classic Orange','cassettes/classic_orange.png'],['Cotton Candy','cassettes/cotton_candy.png'],['Barney','cassettes/barney.png'],['Label Maker','cassettes/label_maker.png'],
+                ['Retro White','cassettes/retro_white.png'],['Stars','cassettes/star.png'],['Switch','cassettes/switch.png'],['Valentine','cassettes/valentine.png']], :class => "form-control"%><br>
+    <%= f.label :backgound_url, "Background: " %><br>
+    <%= f.select :background_url, [['Blue Green','background_1.png'],['Pink Blue','background_2.png'],['Yellow Blue','background_3.png'],
+                ['Purple Pink','background_4.png'],['Orange Blue','background_5.png'],['Yellow Green','background_6.png'],['Orange White','background_7.png'],['Brown White','background_8.png']], :class => "form-control"%>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %><br>
+    <%= f.submit "Submit", :class => "btn btn-primary"%>
+</div>
 <% end %>
 
 <% if @errors %>
@@ -19,3 +21,5 @@
     <%= error %>
     <% end%>
 <% end%>
+
+<%= link_to 'Test', '#', onclick: "testFun()" %>
