@@ -10,15 +10,44 @@
 <div class="col-md-2">
 </div>
 <div class = "col-4-md" style="width:400; height:350; position: relative; left: 0; top: ;">
-        <img src="<%= image_path('backgrounds/background_1.png') %>" alt="bkground">
+        <img src="<%= image_path('backgrounds/background_1.png') %>" alt="bkground" id="background">
         <div class = "cassette" style="position: absolute; top:10%; height:171px; width:100% ">
-            <img src="<%= image_path('cassettes/eighties.png') %>" style="position: absolute; top:10%; width:100%; height \: " alt="bkground">
+            <img src="<%= image_path('cassettes/eighties.png') %>" style="position: absolute; top:10%; width:100%; height \: " alt="bkground" id="cassette">
             <div id="handwriting" style="position: absolute; left: 28%; top:29%; height:20px; ">
-                <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"><h2>
+                <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"></h2>
             </div>
         </div>
         </div>
 <div class="col-md-4">
+
+<div>
+    <div class="pattern-picker">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_1.png"%>" name="backgrounds/background_1.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_2.png"%>" name="backgrounds/background_2.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_3.png"%>" name="backgrounds/background_3.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_4.png"%>" name="backgrounds/background_4.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_5.png"%>" name="backgrounds/background_5.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_6.png"%>" name="backgrounds/background_6.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_7.png"%>" name="backgrounds/background_7.png" onclick="updateBackground(this)">
+        <img style="height:50px" src="<%= image_path "backgrounds/background_8.png"%>" name="backgrounds/background_8.png" onclick="updateBackground(this)">
+    </div>
+</div>
+<div>
+    <div class="cassette-picker">
+        <img style="height:50px" src="<%= image_path "cassettes/eighties.png"%>" name="cassettes/eighties.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/classic_blue.png"%>" name="cassettes/classic_blue.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/classic_green.png"%>" name="cassettes/classic_green.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/classic_orange.png"%>" name="cassettes/classic_orange.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/cotton_candy.png"%>" name="cassettes/cotton_candy.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/barney.png"%>" name="cassettes/barney.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/label_maker.png"%>" name="cassettes/label_maker.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/retro_white.png"%>" name="cassettes/retro_white.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/star.png"%>" name="cassettes/star.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/switch.png"%>" name="cassettes/switch.png" onclick="updateCassette(this)">
+        <img style="height:50px" src="<%= image_path "cassettes/valentine.png"%>" name="cassettes/valentine.png" onclick="updateCassette(this)">
+    </div>
+</div>
+
     <%= render 'form'%>
 </div>
 </div>

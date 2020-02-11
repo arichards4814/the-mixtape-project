@@ -1,7 +1,25 @@
 <h1> Mixtapes: </h1>
 
-<% @mixtapes.each do |mixtape| %>
-<h2><%= mixtape.title %></h2>
-<h3><%= mixtape.message %></h2>
 
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @mixtapes.each do |mixtape|%>
+      <% url = mixtape.background_url%>
+      <% if url == nil || !url.include?(".png")%>
+      <% url = "backgrounds/background_1.png" %>
+      <% end%>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card" style="width: 18rem;">
+          <a href="<%= mixtape_path(mixtape.id) %>"><img class="card-img-top" src="<%= image_path mixtape.cassette_url %>" style = "position: relative; height:100%; background-image: url('<%= image_path(url) %>');" alt="Cassette"></a>
+          <div id="handwriting" style="position: absolute; left: 28%; top:7%; height:20px; ">
+                <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center; font-size:25px" id="message-text"><%= mixtape.title %><h2>
+        </div>
+          <div class="card-body">
+            <p class="card-text"><%= mixtape.message%></p>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
