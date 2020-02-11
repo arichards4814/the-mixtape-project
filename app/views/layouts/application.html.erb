@@ -10,7 +10,7 @@
   
     <%= stylesheet_link_tag href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= stylesheet_link_tag href="https://fonts.googleapis.com/css?family=Gochi+Hand|Permanent+Marker&display=swap" %>
-  
+    <%= stylesheet_link_tag href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada&display=swap"%>
   </head>
 
   <body>
@@ -21,8 +21,8 @@
     <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">The Mixtape</a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <a href="<%= root_path %>"><img style="height:50px" src="<%= image_path "buttons/home.png"%>"></a> <a href="<%= mixtapes_path %>"><img style="height:50px" src="<%= image_path "buttons/cassette.png"%>"></a>
+      <a href="<%= profile_path %>"><img style="height:50px" src="<%= image_path @current_user.current_badge %>"></a> 
       </form>
   </nav>
   </div>

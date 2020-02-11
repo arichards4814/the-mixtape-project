@@ -1,0 +1,46 @@
+<%# buffer %>
+<div style="height:40px">
+</div>
+
+<div class="row"  style="background: #0099ff">
+<div class="col-md-2">
+</div>
+<div class="col-md-2">
+<a href="<%= profile_badges_path %>"><img style="height:150px" src="<%= image_path @current_user.current_badge%>"></a>
+</div>
+<h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @current_user.user_name %><h2>
+
+</div>
+
+<%# buffer %>
+<div style="height:40px">
+</div>
+
+
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+<h2>My Badges:</h2>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+  <% if @current_user.badges %>
+    <% @current_user.badges.each do |badge|%>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card text-center" style="width: 300px; height: 270px; margin-bottom: 30px">
+         <a href="<%= badge_path(badge.id)%>"> <img class="card-img-top" src="<%= image_path(badge.image_url) %>" style = "position: relative; width:50%; text-align: center; margin-top: 15px" alt="Badge"><a>
+          <div class="card-body">
+          
+            <h3 class="card-title" style="text-align:center;"><%= badge.title %></h3>
+            <%= button_to "Set as Profile Badge", change_badge_path(badge.id) ,:class => "btn btn-primary"%>
+          </div>
+      </div>
+    </div>
+
+    <% end %>
+    <% end %>
+  </div>
+</div>

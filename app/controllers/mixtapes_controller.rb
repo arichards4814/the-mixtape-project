@@ -1,5 +1,7 @@
 class MixtapesController < ApplicationController
 
+    
+    before_action :get_current_user
     before_action :authorized
     before_action :find_mixtape, only: [:show, :edit, :update, :destroy]
 
@@ -58,5 +60,9 @@ end
 def find_mixtape
     @mixtape = Mixtape.find(params[:id])
 end
+
+    def get_current_user
+        @current_user = current_user
+    end
 
 end

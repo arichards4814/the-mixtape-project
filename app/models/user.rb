@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password 
     has_many :mixtapes
+    has_many :badge_users
+    has_many :badges, through: :badge_users
     has_many :songs, through: :users
 
     validates :user_name, presence: true

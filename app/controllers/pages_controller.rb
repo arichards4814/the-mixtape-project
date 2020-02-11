@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
     
+
+    before_action :get_current_user
     before_action :authorized, except: [:main, :login, :create]
 
 def main
@@ -18,7 +20,7 @@ def create
     
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to user_path(@user)
     else 
         flash[:error_message] = "User name or password incorrect."
         redirect_to login_path
@@ -32,6 +34,12 @@ def destroy
     redirect_to root_url
 end
 
+private
+
+
+    def get_current_user
+        @current_user = current_user
+    end
 
 
 end

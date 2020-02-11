@@ -1,17 +1,40 @@
 
-<% if !session[:user_id]%>
-<h2>Please log in or create a new account.<h2>
-<% end %>
-<h2>Log In:<h2>
-<%# needs to be a form tag... not a form_for %>
+
+
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+  <h2 style="text-align: center">Log In:<h2>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
 
 
 
-<%= form_tag '/logged' do %>
-  Username: <%= text_field_tag :user_name %>
-  Password: <%= password_field_tag :password %>
-<%= submit_tag "Submit"%>
-<% end %>
+<div class="row">
+
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<div class="form-group">
+  <%= form_tag '/logged' do %>
+      
+    Username: <%= text_field_tag :user_name, "", :class => "form-control" %>
+    Password: <%= password_field_tag :password, "",:class => "form-control" %>
+  <%= submit_tag "Submit", :class => "btn btn-primary"%>
+  
+  <% end %>
+</div>
+</div>
+
+<div class="col-md-4">
+</div>
+
+</div>
+
+
 
 <% if @error %>
 <h1><%= @error %></h1>

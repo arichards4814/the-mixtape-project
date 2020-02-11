@@ -4,13 +4,8 @@
     <%= f.text_field :title, :class => "form-control", :id => "title",  :onkeyup => "updateText()"%>
     <%= f.label :message %>
     <%= f.text_area :message, :class => "form-control" %>
-    <%= f.label :cassette_url, "Cassette Style: "%><br>
-    <%= f.select :cassette_url, [['The 80s','cassettes/eighties.png'],['Classic Blue','cassettes/classic_blue.png'],['Classic Green','cassettes/classic_green.png'],
-                ['Classic Orange','cassettes/classic_orange.png'],['Cotton Candy','cassettes/cotton_candy.png'],['Barney','cassettes/barney.png'],['Label Maker','cassettes/label_maker.png'],
-                ['Retro White','cassettes/retro_white.png'],['Stars','cassettes/star.png'],['Switch','cassettes/switch.png'],['Valentine','cassettes/valentine.png']], :class => "form-control"%><br>
-    <%= f.label :backgound_url, "Background: " %><br>
-    <%= f.select :background_url, [['Blue Green','backgrounds/background_1.png'],['Pink Blue','backgrounds/background_2.png'],['Yellow Blue','backgrounds/background_3.png'],
-                ['Purple Pink','backgrounds/background_4.png'],['Orange Blue','backgrounds/background_5.png'],['Yellow Green','backgrounds/background_6.png'],['Orange White','backgrounds/background_7.png'],['Brown White','backgrounds/background_8.png']], :class => "form-control"%>
+    <%= f.hidden_field :cassette_url, :class => "form-control"%><br>
+    <%= f.hidden_field :background_url, :class => "form-control"%>
     <%= f.hidden_field :user_id, :value => session[:user_id] %><br>
     <%= f.submit "Submit", :class => "btn btn-primary"%>
 </div>

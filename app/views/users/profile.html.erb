@@ -7,9 +7,9 @@
 <div class="col-md-2">
 </div>
 <div class="col-md-2">
-<img style="height:150px" src="<%= image_path @user.current_badge%>">
+<a href="<%= profile_badges_path %>"><img style="height:150px" src="<%= image_path @current_user.current_badge%>"></a>
 </div>
-<h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @user.user_name %><h2>
+<h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @current_user.user_name %><h2>
 
 </div>
 
@@ -20,7 +20,7 @@
 
 <div class="container">
   <div class="row">
-    <% @user.mixtapes.each do |mixtape|%>
+    <% @current_user.mixtapes.each do |mixtape|%>
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="card" style="width: 18rem;">
          <a href="<%= mixtape_path(mixtape.id)%>"> <img class="card-img-top" src="<%= image_path(mixtape.cassette_url) %>" style = "position: relative; height:100%;" alt="Cassette"><a>

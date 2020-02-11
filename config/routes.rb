@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     post '/logout', to: 'pages#destroy', as: 'logout'
     delete '/users/:id', to: "users#destroy"
 
+    get '/profile', to: 'users#profile', as: 'profile'
+    get '/profile/badges', to: 'users#badges', as: 'profile_badges'
+    post '/profile/badges/:id', to: 'users#change_badge', as: 'change_badge'
+
     ##get '/login' to: 'sessions#new'
     ##post '/sessions' to: 'sessions#create'
     ##delete '/sessions' to: 'sessions#destroy'
