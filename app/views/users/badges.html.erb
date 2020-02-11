@@ -1,21 +1,4 @@
-<%# buffer %>
-<div style="height:40px">
-</div>
-
-<div class="row"  style="background: #0099ff">
-<div class="col-md-2">
-</div>
-<div class="col-md-2">
-<a href="<%= profile_badges_path %>"><img style="height:150px" src="<%= image_path @current_user.current_badge%>"></a>
-</div>
-<h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @current_user.user_name %><h2>
-
-</div>
-
-<%# buffer %>
-<div style="height:40px">
-</div>
-
+<%= render 'profile_header' %>
 
 <div class="row">
 <div class="col-md-2">
