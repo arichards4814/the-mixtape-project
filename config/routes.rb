@@ -23,6 +23,13 @@ Rails.application.routes.draw do
     get '/profile/badges', to: 'users#badges', as: 'profile_badges'
     post '/profile/badges/:id', to: 'users#change_badge', as: 'change_badge'
 
+
+    get '/search', to: 'songs#search', as: 'search'
+    get '/found', to: 'songs#found', as: 'found'
+    get '/albums/:id', to: 'songs#albums', as: 'albums'
+    get '/songs/:id', to: 'songs#songs', as: 'songs'
+
+
     ##get '/login' to: 'sessions#new'
     ##post '/sessions' to: 'sessions#create'
     ##delete '/sessions' to: 'sessions#destroy'

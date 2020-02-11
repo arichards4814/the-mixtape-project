@@ -1,0 +1,16 @@
+
+<div class="songs-container">
+<% if @artists %>
+<% @artists.each do |artist| %>
+    <p><%= artist.name %></p>
+     <p><%= artist.id %></p>
+    <p> <%= artist.type %></p>
+    <% if artist.images[0] %>
+    <img style="height:160px; width:160px" src=<%= artist.images[0]["url"] %>>
+    <% end %>
+   
+    <%= link_to "Albums", albums_path(artist.id) %>
+    
+<% end %>
+<% end %>
+</div>

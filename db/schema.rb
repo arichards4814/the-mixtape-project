@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_155257) do
+ActiveRecord::Schema.define(version: 2020_02_11_183249) do
 
   create_table "badge_users", force: :cascade do |t|
     t.integer "badge_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2020_02_10_155257) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mixtape_songs", force: :cascade do |t|
+    t.integer "song_id"
+    t.integer "mixtape_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "mixtapes", force: :cascade do |t|
     t.string "title"
     t.string "message"
@@ -34,6 +41,16 @@ ActiveRecord::Schema.define(version: 2020_02_10_155257) do
     t.string "background_url"
     t.integer "user_id"
     t.integer "likes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.integer "song_id"
+    t.string "name"
+    t.string "preview_url"
+    t.string "artist_name"
+    t.string "album"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

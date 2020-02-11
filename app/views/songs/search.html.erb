@@ -1,0 +1,46 @@
+
+<div style="height: 100px">
+</div>
+<div class="row" style="text-align: center">
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+<h2>Search by Artist</h2>
+</div>
+</div>
+
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+
+    
+
+<div class="row" style="text-align: center">
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<%= form_tag found_path, method: "get", html: { class: "form" } do %>
+ <div class="form-group col-xs-4">
+   <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
+ </div>
+ <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
+
+
+<div class="songs-container">
+<% if @artists %>
+<% @artists.each do |artist| %>
+    <%= artist.name %>
+    <%= artist.id %>
+    <%= artist.type %>
+    <%= artist.uri %>
+<% end %>
+<% end %>
+</div>
