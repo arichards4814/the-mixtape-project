@@ -1,3 +1,19 @@
 <% @album.tracks.each do |track| %>
     <p><%= track.name %></p>
+
+
+    <%= form_tag '/add_song' do %>
+        <%= hidden_field_tag :song_id, track.id %>
+        <%= hidden_field_tag :name, track.name %>
+        <%= hidden_field_tag :preview_url, track.preview_url %>
+        <%= hidden_field_tag :artist_name, track.artists[0].name %>
+        <%= hidden_field_tag :album, track.album.name %>
+        <%= hidden_field_tag :artist_url, track.artists[0].images[0]["url"] %>
+        <%= hidden_field_tag :album_url, track.album.images[0]["url"] %>
+        <%= submit_tag "Add to Mixtape", :class => "btn btn-primary"%>
+    <% end %>
+
+    <% button_to "Add to Mixtape", add_song_path(track.id) %>
 <% end %>
+
+<h2><%= flash[:mixtape_id] %></h2>

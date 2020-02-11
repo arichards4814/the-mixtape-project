@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_183249) do
+ActiveRecord::Schema.define(version: 2020_02_11_214229) do
 
   create_table "badge_users", force: :cascade do |t|
     t.integer "badge_id"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_02_11_183249) do
     t.string "album"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "album_url"
+    t.string "artist_url"
   end
 
   create_table "users", force: :cascade do |t|

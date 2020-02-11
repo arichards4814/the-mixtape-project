@@ -23,7 +23,7 @@ def create
     ##need @mixtape.user = current_user
     if @mixtape.valid?
         @mixtape.save
-        redirect_to mixtape_path(@mixtape)
+        redirect_to edit_mixtape_path(@mixtape)
     else 
         flash[:errors] = @mixtape.errors.full_messages
         redirect_to new_mixtape_path

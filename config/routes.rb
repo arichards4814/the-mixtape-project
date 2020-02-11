@@ -24,11 +24,13 @@ Rails.application.routes.draw do
     post '/profile/badges/:id', to: 'users#change_badge', as: 'change_badge'
 
 
-    get '/search', to: 'songs#search', as: 'search'
+    get '/search/:id', to: 'songs#search', as: 'search'
     get '/found', to: 'songs#found', as: 'found'
     get '/albums/:id', to: 'songs#albums', as: 'albums'
     get '/songs/:id', to: 'songs#songs', as: 'songs'
+    post '/add_song', to: 'songs#add_song', as: 'add_song'
 
+    ## need to do one for remove song
 
     ##get '/login' to: 'sessions#new'
     ##post '/sessions' to: 'sessions#create'
