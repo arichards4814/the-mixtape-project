@@ -20,7 +20,7 @@ def create
     
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to profile_path
     else 
         flash[:error_message] = "User name or password incorrect."
         redirect_to login_path

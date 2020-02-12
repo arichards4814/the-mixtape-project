@@ -3,7 +3,6 @@
 <div class="col-md-4">
 </div>
 <div class="col-md-4">
-    <h1>Create New Mixtape: </h1>
 </div>
 </div>
 <div class="row">
@@ -18,33 +17,73 @@
             </div>
         </div>
         </div>
-<div class="col-md-5">
-
+<div class="col-md-5" style="background-color: #ccffcc; border-radius:10px; box-shadow:10px">
+<br>
 <div>
-    <div class="pattern-picker">
-        <img style="height:50px" src="<%= image_path "backgrounds/background_1.png"%>" name="backgrounds/background_1.png" onclick="updateBackground(this)">
-        <img style="height:50px" src="<%= image_path "backgrounds/background_2.png"%>" name="backgrounds/background_2.png" onclick="updateBackground(this)">
+
+    <h1 style="font-family: 'Lacquer', sans-serif;">Create A New Mixtape </h1>
+    <div class="pattern-picker" style="">
+        <div class="pattern" id="bac-1" style="display:inline-block">
+            <img style="height:50px" src="<%= image_path "backgrounds/background_1.png"%>" name="backgrounds/background_1.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-2" style="display:inline-block">
+            <img style="height:50px" src="<%= image_path "backgrounds/background_2.png"%>" name="backgrounds/background_2.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-3" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_3.png"%>" name="backgrounds/background_3.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-4" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_4.png"%>" name="backgrounds/background_4.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-5" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_5.png"%>" name="backgrounds/background_5.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-6" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_6.png"%>" name="backgrounds/background_6.png" onclick="updateBackground(this)">
+        </div>
+        <div class="pattern" id="bac-7" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_7.png"%>" name="backgrounds/background_7.png" onclick="updateBackground(this)">
+       </div>
+        <div class="pattern" id="bac-8" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "backgrounds/background_8.png"%>" name="backgrounds/background_8.png" onclick="updateBackground(this)">
+        </div>
     </div>
 </div>
 <div>
     <div class="cassette-picker">
-        <img style="height:50px" src="<%= image_path "cassettes/eighties.png"%>" name="cassettes/eighties.png" onclick="updateCassette(this)">
+        <div class="cassette-pick" id="cas-1" style="display:inline-block">
+            <img style="height:50px" src="<%= image_path "cassettes/eighties.png"%>" name="cassettes/eighties.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-2" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/classic_blue.png"%>" name="cassettes/classic_blue.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-3" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/classic_green.png"%>" name="cassettes/classic_green.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-4" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/classic_orange.png"%>" name="cassettes/classic_orange.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-5" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/cotton_candy.png"%>" name="cassettes/cotton_candy.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-6" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/barney.png"%>" name="cassettes/barney.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-7" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/label_maker.png"%>" name="cassettes/label_maker.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-8" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/retro_white.png"%>" name="cassettes/retro_white.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-9" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/star.png"%>" name="cassettes/star.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick"id="cas-10"  style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/switch.png"%>" name="cassettes/switch.png" onclick="updateCassette(this)">
+        </div>
+        <div class="cassette-pick" id="cas-11" style="display:inline-block">
         <img style="height:50px" src="<%= image_path "cassettes/valentine.png"%>" name="cassettes/valentine.png" onclick="updateCassette(this)">
+        </div>
     </div>
 </div>
 

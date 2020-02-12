@@ -1,13 +1,25 @@
-<h2>Home</h2>
 
+<br><br><br>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" style="background-color: rgba(255, 255, 255, 0.9); height: 400px; border-radius:25px; box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153); ">
+    
+    <% if @notice %>
+    <h3> <%= @notice %> </h3>
+    <% end %>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <% if session[:user_id] %>
-    <h4>You are logged in as: <%= session[:user_id] %> </h4>
-    <%= button_to "Logout", logout_path %>
-<% else %>
-    <%= link_to "Login", login_path%>
-    <%= link_to "Create New Account", new_user_path%>
-<% end %>
+        <div style="text-align:center">
+            <h4>You are logged in as: <%= @current_user.user_name %> </h4>
+            <%= button_to "Logout", logout_path, :class => "btn btn-success"%>
+        </div>
+    <% else %>
+    <div style="text-align:center">
+        <a href="<%= login_path %>"><button type="button" class="btn btn-success">Sign In</button></a>
+        <a href="<%= new_user_path %>"><button type="button" class="btn btn-dark">Create New Account</button></a>
+    </div>
+    <% end %>
 
-<% if @notice %>
-<h3> <%= @notice %> </h3>
-<% end %>
+    </div>
+</div>

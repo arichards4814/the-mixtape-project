@@ -1,4 +1,4 @@
-<h1 style="text-align: center">Edit/Add Songs Mixtape: </h1>
+<br>
 <div class="row">
 <div class="col-md-2">
 </div>
@@ -11,10 +11,12 @@
             </div>
         </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-5" style="background-color: #ccffcc; border-radius:10px; box-shadow:10px">
+<br><h1 style="text-align: center">Edit/Add Songs Mixtape: </h1>
 <%= render 'form'%>
-
-<%= button_to "Delete Mixtape", @mixtape, :method => "delete" %>
+<div style="text-align: center">
+<%= button_to "Delete Mixtape", @mixtape, :method => "delete", :class => "btn btn-danger" %>
+</div>
 </div>
 </div>
 <div style="height:20px">
@@ -41,7 +43,7 @@
 <div class="col-md-2">
 </div>
 <% if @mixtape.songs.count < 12 %>
-<div class="col-md-8 add-song-card" style="height: 200px">
+<div class="col-md-8 add-song-card" style="height: 200px;  background-color: white">
 <br><br>
 <a href="<%= search_path %>"> <i class="fas fa-plus" style="font-size:100px; color:gray;"></i></a>
 

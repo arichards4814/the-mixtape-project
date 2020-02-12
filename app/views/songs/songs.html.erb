@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" style="margin-top:20px">
 
 <div class="col-md-2">
 
@@ -13,13 +13,13 @@
 
 </div>
 <div class="col-md-5">
-<h2> Songs: </h2>
+<div class="transparent-card" style="text-align:center"> <h2> Songs: </h2></div>
 
 <% @album.tracks.each do |track| %>
     <div style="margin: 15px; background-color:#47476b; height: 100px; border-radius:10px">
         <div class="row">
-        <div class="col-md-8" style="color:white; ">
-            <p><%= track.name %></p>
+        <div class="col-md-8" style="color:white; padding-left: 10%">
+            <p style="margin-top:20px; font-size: 20px"><%= track.name %></p>
             <% track.artists.each do |artist| %>
             <span> - <%= artist.name %> - </span>
             <% end %>
@@ -34,7 +34,9 @@
             <%= hidden_field_tag :album_url, track.album.images[0]["url"] %>
             
         <div class="col-md-4">
-            <%= submit_tag "Add to Mixtape", :class => "btn btn-info"%>
+            <div>
+            <%= submit_tag "Add to Mixtape", :class => "btn btn-info", :style => "margin-top: 30px"%>
+            </div>
         </div>
         <% end %>
         </div>

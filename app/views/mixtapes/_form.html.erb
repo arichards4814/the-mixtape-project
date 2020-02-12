@@ -3,11 +3,13 @@
     <%= f.label :title %>
     <%= f.text_field :title, :class => "form-control", :id => "title",  :onkeyup => "updateText()"%>
     <%= f.label :message %>
-    <%= f.text_area :message, :class => "form-control" %>
+    <%= f.text_field :message, :class => "form-control" %>
     <%= f.hidden_field :cassette_url, :class => "form-control"%><br>
     <%= f.hidden_field :background_url, :class => "form-control"%>
-    <%= f.hidden_field :user_id, :value => session[:user_id] %><br>
-    <%= f.submit "Submit", :class => "btn btn-primary"%>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <div style="text-align:center">
+    <%= f.submit "Submit", :class => "btn btn-dark"%>
+    </div>
 </div>
 <% end %>
 
