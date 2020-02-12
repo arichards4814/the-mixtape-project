@@ -1,10 +1,22 @@
+<br>
+<div class="row">
+<div class="col-md-3">
 
-<h2>Badges:</h2>
+</div>
+<div class="col-md-6 transparent-card" style="text-align:center">
+    <h2>All Badges</h2>
+</div>
+<div class="col-md-3">
+
+</div>
+</div>
+<br>
+
 <div class="container">
   <div class="row">
     <% @badges.each do |badge|%>
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card text-center" style="width: 300px; height: 250px; margin-bottom: 30px">
+        <div class="card text-center transparent-card" style="width: 300px; height: 250px; margin-bottom: 30px">
          <a href="<%= badge_path(badge.id)%>"> <img class="card-img-top" src="<%= image_path(badge.image_url) %>" style = "position: relative; width:50%; text-align: center; margin-top: 15px" alt="Badge"><a>
           <div class="card-body">
           
