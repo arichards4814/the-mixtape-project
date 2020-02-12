@@ -32,7 +32,7 @@ def songs
     flash[:mixtape_id] = flash[:mixtape_id]
 
      @album = RSpotify::Album.find(params[:id])
-
+    
 end
 
 def add_song

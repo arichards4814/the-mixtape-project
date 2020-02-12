@@ -1,8 +1,45 @@
-<img class="" src="<%= image_path(@mixtape.cassette_url) %>" style = "" alt="Cassette">
-          
 
-<h2><%= @mixtape.title %><h2>
 
-<h3><%= @mixtape.message %></h3>
+<div class="row">
+<div class="col-md-2">
+</div>
+    <div class = "col-4-md" style="width:400; height:350; position: relative; left: 0; top: ;">
+            <img src="<%= image_path @mixtape.background_url %>" alt="bkground" id="background">
+            <div class = "cassette" style="position: absolute; top:10%; height:171px; width:100% ">
+                <img src="<%= image_path @mixtape.cassette_url %>" style="position: absolute; top:10%; width:100%; height \: " alt="bkground" id="cassette">
+                <div id="handwriting" style="position: absolute; left: 28%; top:29%; height:20px; ">
+                    <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"><%= @mixtape.title %></h2>
+                </div>
+            </div>
+    </div>
+<div class="col-md-6">
 
-<h3>Created by:<%= @mixtape.user.user_name %></h3>
+<h4>Created by: <%= link_to @mixtape.user.user_name, user_path(@mixtape.user.id) %></h4>
+<h2>Title: <%= @mixtape.title %><h2>
+<h3>Message: <%= @mixtape.message %></h3>
+<% if @mixtape.user.id == session[:user_id]%>
+    <%= link_to "Edit", edit_mixtape_path(@mixtape.id)%>
+<% end%>
+</div>
+</div>
+
+
+
+<div style="height:20px">
+</div>
+
+<% @mixtape.songs.each do |song| %>
+<div class="row" style="height:200px;">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div style="margin-top: 10px" >
+        <img src="<%= song.artist_url%>" style="height:180px">
+      
+    </div>
+    </div>
+</div>
+
+<div style="height:20px">
+</div>
+<% end %>

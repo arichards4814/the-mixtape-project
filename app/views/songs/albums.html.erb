@@ -1,5 +1,32 @@
-<% @artist.albums.each do |album| %>
-    <%= album.name %>
-    <p><img style="height:160px; width:160px" src=<%= album.images[0]["url"]%>></p>
-    <%= link_to "Songs", songs_path(album.id) %>
-<% end %>
+<div class="row" style="margin:10px">
+ <div class="col-md-2">
+</div>
+<div class="col-md-2">
+ <a href="<%= search_path(flash[:mixtape_id]) %>"><i class="fas fa-chevron-left" style="font-size:40px; color:black"></i></a>
+</div>
+ <div class="col-md-4">
+ <h2>Albums:</h2>
+</div>
+<div class="col-md-4">
+</div>
+</div>
+
+        <% if @artist.albums %>
+            <% @artist.albums.each do |album| %>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 artist-card">
+                    <% if album.images[0] %>
+                    <img style="height:160px; width:160px; padding:10px" src=<%= album.images[0]["url"] %>>
+                    <% end %>
+                
+                    <%= link_to "#{album.name}", songs_path(album.id)%>
+                </div>
+                </div class="col-md-3">
+                </div>
+            </div>
+            <div style="height:20px">
+            </div>
+            <% end %>
+        <% end %>

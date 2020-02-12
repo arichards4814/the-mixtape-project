@@ -41,3 +41,33 @@
     color: white;
     text-decoration: none;
 }
+
+.artist-card {
+
+    border: 4px solid grey;
+    border-radius: 8px;
+    background-color: #47476b;
+    
+
+}
+
+.artist-card, a:link, a:visited, a:hover {
+    color:white;
+}
+
+
+.add-song-card {
+
+    text-align: center;
+    border: 4px solid grey;
+    border-radius: 8px; 
+
+}
+.add-song-card:hover {
+
+    text-align: center;
+    color: blue;
+    border: 4px solid blue;
+    border-radius: 8px;
+
+}

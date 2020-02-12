@@ -1,19 +1,49 @@
+
+<div class="row">
+
+<div class="col-md-2">
+
+</div>
+<div class="col-md-3" style="height:350px; width:350px; background-color:#47476b">
+<img src="<%= @album.images[0]["url"]%>" style="height:200px; width:200px; text-align:center; margin-top:20px; margin-left: 70px;">
+<div style="padding-top:20px">
+<h2 style="color:white; text-align:center"><%= @album.artists[0].name %></h2>
+<h3 style="color:white; text-align:center"><%= @album.name %></h3>
+</div>
+
+</div>
+<div class="col-md-5">
+<h2> Songs: </h2>
+
 <% @album.tracks.each do |track| %>
-    <p><%= track.name %></p>
-
-
-    <%= form_tag '/add_song' do %>
-        <%= hidden_field_tag :song_id, track.id %>
-        <%= hidden_field_tag :name, track.name %>
-        <%= hidden_field_tag :preview_url, track.preview_url %>
-        <%= hidden_field_tag :artist_name, track.artists[0].name %>
-        <%= hidden_field_tag :album, track.album.name %>
-        <%= hidden_field_tag :artist_url, track.artists[0].images[0]["url"] %>
-        <%= hidden_field_tag :album_url, track.album.images[0]["url"] %>
-        <%= submit_tag "Add to Mixtape", :class => "btn btn-primary"%>
-    <% end %>
-
-    <% button_to "Add to Mixtape", add_song_path(track.id) %>
+    <div style="margin: 15px; background-color:#47476b; height: 100px; border-radius:10px">
+        <div class="row">
+        <div class="col-md-8" style="color:white; ">
+            <p><%= track.name %></p>
+            <% track.artists.each do |artist| %>
+            <span> - <%= artist.name %> - </span>
+            <% end %>
+        </div>
+        <%= form_tag '/add_song' do %>
+            <%= hidden_field_tag :song_id, track.id %>
+            <%= hidden_field_tag :name, track.name %>
+            <%= hidden_field_tag :preview_url, track.preview_url %>
+            <%= hidden_field_tag :artist_name, track.artists[0].name %>
+            <%= hidden_field_tag :album, track.album.name %>
+            <%= hidden_field_tag :artist_url, track.artists[0].images[0]["url"] %>
+            <%= hidden_field_tag :album_url, track.album.images[0]["url"] %>
+            
+        <div class="col-md-4">
+            <%= submit_tag "Add to Mixtape", :class => "btn btn-info"%>
+        </div>
+        <% end %>
+        </div>
+    </div>
 <% end %>
 
-<h2><%= flash[:mixtape_id] %></h2>
+</div>
+<div class="col-md-2">
+
+</div>
+
+</div>
