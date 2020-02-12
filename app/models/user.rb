@@ -11,4 +11,24 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, :message => " - Example: user@gmail.com"
 
+
+
+
+     def badges_check(current_user)
+        one_mixtape(current_user)
+    end
+
+
+
+     def one_mixtape(current_user)
+        if !current_user.badges.include?(Badge.find(15))
+            if current_user.mixtapes.count >= 1
+                BadgeUser.create(badge_id: 15, user_id: current_user.id)
+                puts "-------------------------------"
+                puts "BadgeUser Created"
+                puts "-------------------------------"
+                true
+           end
+        end
+    end
 end
