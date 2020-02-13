@@ -15,6 +15,22 @@
 
 <h4>Created by: <%= link_to @mixtape.user.user_name, user_path(@mixtape.user.id) %></h4>
 <h2>Title: <%= @mixtape.title %><h2>
+
+
+<% liked = false %>
+<% @current_user.likes.each do |like| %>
+    <% if like.mixtape_id == @mixtape.id %>
+        <% liked = true %>
+    <% end%>
+<% end %>
+<% if liked == true || @current_user.id == @mixtape.user_id %>
+        <i class="fas fa-heart" style="font-size:50px; position: absolute; top: 20px; right:24px;"></i>
+<% else %>
+    <%= button_to like_path, :style => "position: absolute; top: 20px; right:20px; background-color: Transparent; border: none; cursor:pointer;" do %>
+            <i class="far fa-heart" style="font-size:50px"></i>
+    <% end %>
+<% end %>
+
 <h3>Message: <%= @mixtape.message %></h3>
 <% if @mixtape.user.id == session[:user_id]%>
     <%= link_to "Edit", edit_mixtape_path(@mixtape.id)%>

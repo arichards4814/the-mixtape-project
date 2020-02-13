@@ -18,14 +18,17 @@
       <% url = "backgrounds/background_1.png" %>
       <% end%>
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; margin-top: 20px">
           <a href="<%= mixtape_path(mixtape.id) %>"><img class="card-img-top" src="<%= image_path mixtape.cassette_url %>" style = "position: relative; height:100%; background-image: url('<%= image_path(url) %>');" alt="Cassette"></a>
           <div id="handwriting" style="position: absolute; left: 28%; top:7%; height:20px; ">
                 <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center; font-size:25px" id="message-text"><%= mixtape.title %><h2>
         </div>
-          <div class="card-body">
+          <div class="card-body" style = "height: 100px">
             <p class="card-text"><%= mixtape.message%></p>
-          </div>
+            </div>
+            <div>
+             <p style = "text-align: center"> <i class="fas fa-heart" style="font-size:20px"></i><%= mixtape.likes.count %></p>
+            </div>
       </div>
     </div>
     <% end %>

@@ -18,6 +18,7 @@
   <body>
 
 <% if session[:user_id] %>
+  <% if @new_badges %>
   <% if @new_badges.length > 0 %>
     <div class="transparent-card custom-modal" id="badge-modal">
       <% if !(@new_badges.count > 1)%>
@@ -34,6 +35,7 @@
       <button class="btn btn-success" onclick="closeModal()">Close</button><br><a href="<%= profile_badges_path %>"><button class="btn btn-info" style="margin-top:10px; margin-bottom: 10px">See your badges</button></a>
     </div>
   <% end%>
+  <% end %>
 <% end %>
 
 

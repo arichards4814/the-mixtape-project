@@ -3,7 +3,7 @@ class MixtapesController < ApplicationController
     
     before_action :get_current_user
     before_action :authorized
-    before_action :find_mixtape, only: [:show, :edit, :update, :destroy]
+    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like]
     before_action :badges_check
 
 def index
@@ -44,6 +44,11 @@ def update
         flash[:errors] = @mixtape.errors.full_messages
         redirect_to edit_mixtape_path
     end
+end
+
+def like
+    Like.create(user_id: @current_user.id, mixtape_id: @mixtape.id)
+    redirect_to mixtape_path(@mixtape)
 end
 
 def destroy

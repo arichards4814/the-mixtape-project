@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :badge_users
     has_many :badges, through: :badge_users
     has_many :songs, through: :users
+    has_many :likes
 
     validates :user_name, presence: true
     validates :user_name, uniqueness: true
@@ -81,7 +82,7 @@ class User < ApplicationRecord
         if !current_user.badges.include?(Badge.find(23))
             current_user.mixtapes.each do |mixtape|
                 if mixtape.likes
-                    if mixtape.likes >= 5
+                    if mixtape.likes.length >= 5
                     true
                     end
                 end
@@ -93,7 +94,7 @@ class User < ApplicationRecord
         if !current_user.badges.include?(Badge.find(2))
             current_user.mixtapes.each do |mixtape|
                 if mixtape.likes
-                    if mixtape.likes >= 10
+                    if mixtape.likes.length >= 10
                     true
                     end
                 end
@@ -105,7 +106,7 @@ class User < ApplicationRecord
         if !current_user.badges.include?(Badge.find(19))
             current_user.mixtapes.each do |mixtape|
                 if mixtape.likes
-                    if mixtape.likes >= 15
+                    if mixtape.likes.length >= 15
                     true
                     end
                 end
@@ -117,7 +118,7 @@ class User < ApplicationRecord
         if !current_user.badges.include?(Badge.find(1))
             current_user.mixtapes.each do |mixtape|
                 if mixtape.likes
-                   if mixtape.likes >= 50
+                   if mixtape.likes.length >= 50
                     true
                     end
                 end

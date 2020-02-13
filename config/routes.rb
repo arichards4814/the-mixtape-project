@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     get '/songs/:id', to: 'songs#songs', as: 'songs'
     post '/add_song', to: 'songs#add_song', as: 'add_song'
 
+    post 'like/:id', to: 'mixtapes#like', as: 'like'
+
     ## need to do one for remove song
 
     ##get '/login' to: 'sessions#new'

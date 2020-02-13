@@ -2,9 +2,10 @@
  <div class="col-md-2">
 </div>
 <div class="col-md-2">
- <a href="<%= search_path(flash[:mixtape_id]) %>"><i class="fas fa-chevron-left" style="font-size:40px; color:black"></i></a>
+        <a href="<%= search_path(flash[:mixtape_id]) %>"><i class="fas fa-arrow-alt-circle-left" style="font-size: 45px; color:#ff99cc;"></i></a>
+   
 </div>
- <div class="col-md-4">
+ <div class="col-md-4 transparent-card">
  <h2>Albums:</h2>
 </div>
 <div class="col-md-4">
@@ -16,12 +17,12 @@
             <div class="row">
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-6 artist-card">
+                <div class="col-md-6 artist-card" style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);">
                     <% if album.images[0] %>
                     <img style="height:160px; width:160px; padding:10px" src=<%= album.images[0]["url"] %>>
                     <% end %>
-                
-                    <%= link_to "#{album.name}", songs_path(album.id)%>
+
+                    <%= link_to "#{album.name}", songs_path(album.id), :style => "font-size:30px"%>
                 </div>
                 </div class="col-md-3">
                 </div>
