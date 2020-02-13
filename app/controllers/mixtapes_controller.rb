@@ -3,7 +3,7 @@ class MixtapesController < ApplicationController
     
     before_action :get_current_user
     before_action :authorized
-    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like]
+    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like, :preview_send_mixtape, :send_mixtape]
     before_action :badges_check
 
 def index
@@ -49,6 +49,16 @@ end
 def like
     Like.create(user_id: @current_user.id, mixtape_id: @mixtape.id)
     redirect_to mixtape_path(@mixtape)
+end
+
+def preview_send_mixtape
+
+end
+
+def send_mixtape
+
+    UserMailer.send_mixtape(@current_user, params[:recipient], @mixtape).deliver_now
+    redirect_to preview_send_mixtape_path
 end
 
 def destroy

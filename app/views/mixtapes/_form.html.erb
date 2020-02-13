@@ -1,7 +1,7 @@
 <%= form_for @mixtape do |f|%>
 <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, :class => "form-control", :id => "title",  :onkeyup => "updateText()"%>
+    <%= f.text_field :title, :class => "form-control", :id => "title",  :onkeyup => "updateText()", :maxlength => 14%>
     <%= f.label :message %>
     <%= f.text_field :message, :class => "form-control" %>
     <%= f.hidden_field :cassette_url, :class => "form-control"%><br>

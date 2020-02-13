@@ -11,9 +11,10 @@
 
 </div>
 <div>
-    <h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @current_user.user_name %><h2>
+   <h2 style="font-size: 80px; font-family: 'Montserrat Subrayada', sans-serif;"><%= @current_user.user_name %><h2>
 
-<p style="position:absolute; left:50%" class="prof-nav">Badges</p> <p style="position:absolute;" class="prof-nav">Mixtapes</p>
+<a href="<%= profile_badges_path %>"><p style="position:absolute; left:50%" class="prof-nav">Badges</p></a> <a href="<%= profile_path %>"><p style="position:absolute;" class="prof-nav">Mixtapes</p></a>
+       <a href="<%= loved_path %>"><i class="fas fa-heart" style="font-size:40px; position:relative; left: 450px; bottom:0px"></i></a>
 </div>
 </div>
 

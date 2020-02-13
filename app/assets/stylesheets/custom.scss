@@ -51,7 +51,7 @@
 
 }
 
-.artist-card, a:link, a:visited,  {
+.artist-card, a:link, a:visited  {
     color:rgb(47, 153, 144);
 }
 
@@ -113,7 +113,7 @@ box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153);
 
 .custom-modal{
     margin-top: 20px;
-    background-color: white;
+    background-color: #ffffcc;
     position:fixed;
     top:0;
     width: 600px;
@@ -128,4 +128,8 @@ font-size:30px;
 font-family: 'Permanent Marker',
 cursive;
 
+}
+
+.marker {
+    font-family: 'Permanent Marker',
 }

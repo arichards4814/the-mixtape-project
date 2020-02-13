@@ -1,0 +1,20 @@
+<h1> <%= @user.user_name.capitalize %> just sent you a mixtape! </h1>
+
+<h2>Title: <%= @mixtape.title %></h2>
+<h3>Message: <%= @mixtape.message %></h3>
+
+<%= image_tag(attachments['mixtape.png'].url, style: "height: 300px")%>
+
+
+<% @mixtape.songs.each_with_index do |song, ind| %>
+<div style= "height:100px; background-color: #ff99cc;">
+    <br>
+    <%= ind + 1 %>. <%= song.name %> - <%= song.artist_name %>
+    <br>
+</div>
+<% end %>
+
+<h4> To see your full tape go to themixtapeproj.com/mixtapes/<%=@mixtape.id%> </h4>
+
+<h4>This message was sent from themixtapeproj.com </h4>
+<h5> Created by Nate Brickett and Andrew Richards</h5>

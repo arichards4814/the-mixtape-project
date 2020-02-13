@@ -1,19 +1,12 @@
 <%= render 'profile_header' %>
 
-<div class="row">
-<div class="col-md-2">
-</div>
-<div class="col-md-4">
-<h2>My Badges:</h2>
-</div>
-</div>
 
 <div class="container">
   <div class="row">
   <% if @current_user.badges %>
     <% @current_user.badges.each do |badge|%>
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card text-center" style="width: 300px; height: 270px; margin-bottom: 30px">
+        <div class="card text-center" style="width: 300px; height: 280px; margin-bottom: 30px; background-color: #ffffcc">
          <a href="<%= badge_path(badge.id)%>"> <img class="card-img-top" src="<%= image_path(badge.image_url) %>" style = "position: relative; width:50%; text-align: center; margin-top: 15px" alt="Badge"><a>
           <div class="card-body">
           

@@ -183,11 +183,25 @@ class User < ApplicationRecord
     def lemonade(current_user)
         if !current_user.badges.include?(Badge.find(13))
             current_user.mixtapes.each do |mixtape|
-                if mixtape.songs.name == "Lemonade" || "lemonade"
-                    true
+                mixtape.songs.each do |song|    
+                    if song.artist_name == "Beyoncé" || "Beyonce"
+                        true
+                    end
                 end
              end
             false
         end
+    end
+
+
+
+    def find_liked_mixtapes
+        liked_tapes = []
+        Like.all.each do |like|
+            if like.user_id == self.id
+                liked_tapes << Mixtape.find(like.mixtape_id)
+            end
+        end
+        liked_tapes
     end
 end

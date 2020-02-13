@@ -1,0 +1,28 @@
+
+<%# need to show what the mixtape looks like%>
+<%# need a foerm %>
+
+<%# flash%>
+
+<div class="row">
+<div class="col-md-4">
+</div>
+<div class="col-md-4 transparent-card" style="width:350px">
+      <img src="<%= image_path @mixtape.background_url %>" alt="bkground" id="background">
+            <div class = "cassette" style="position: absolute; top:10%; height:171px; width:100% ">
+                <img src="<%= image_path @mixtape.cassette_url %>" style="position: absolute; top:10%; width:100%; height \: " alt="bkground" id="cassette">
+                <div id="handwriting" style="position: absolute; left: 28%; top:29%; height:20px; ">
+                    <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"><%= @mixtape.title %></h2>
+                </div>
+            </div>
+
+<%= form_tag send_mixtape_path do %>
+  <%= text_field_tag :recipient %>
+  <%= submit_tag "Send Mixtape"%>
+<% end %>
+</div>
+<div class="col-md-4">
+</div>
+</div>
+
+

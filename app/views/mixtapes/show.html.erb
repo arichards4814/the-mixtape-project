@@ -11,10 +11,10 @@
                 </div>
             </div>
     </div>
-<div class="col-md-5" style="background-color: #ccffcc; border-radius:10px; box-shadow:10px">
-
-<h4>Created by: <%= link_to @mixtape.user.user_name, user_path(@mixtape.user.id) %></h4>
-<h2>Title: <%= @mixtape.title %><h2>
+<div class="col-md-5" style="background-color: #ccccff; border-radius:10px; box-shadow:10px; padding-left: 30px">
+<br>
+<h4>Created by: <span class="marker"><%= link_to @mixtape.user.user_name, user_path(@mixtape.user.id) %></span></h4>
+<h2 >Title: <span class="marker"><%= @mixtape.title %></span><h2>
 
 
 <% liked = false %>
@@ -31,11 +31,16 @@
     <% end %>
 <% end %>
 
-<h3>Message: <%= @mixtape.message %></h3>
+<h3>Message: <span class="marker"><%= @mixtape.message %></span></h3>
 <% if @mixtape.user.id == session[:user_id]%>
     <div style="position:absolute; bottom:5%; right:10%">
         <%= button_to edit_mixtape_path(@mixtape),:method => 'get', :style => "background-color: Transparent; border: none; cursor:pointer;" do %>
             <p style="font-size:30px; font-family: 'Permanent Marker', cursive; text-align: center"> Edit</p>
+        <% end %>
+        <% if @current_user.id == @mixtape.user_id%>
+            <%= button_to preview_send_mixtape_path(@mixtape),:method => 'get', :style => "background-color: Transparent; border: none; cursor:pointer;" do %>
+                <p style="font-size:30px; font-family: 'Permanent Marker', cursive; text-align: center"> Send!</p>
+            <% end %>
         <% end %>
     </div>
 <% end%>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.update(current_badge: "badges/b_and_w_default.png")
             @user.save
+            UserMailer.welcome_email(@user).deliver_now
             session[:user_id] = @user.id
             redirect_to profile_path
         else 
@@ -66,6 +67,11 @@ class UsersController < ApplicationController
             redirect_to edit_user_path
         end
 
+    end
+
+    def loved
+        @liked_tapes = @current_user.find_liked_mixtapes
+        
     end
 
     def destroy

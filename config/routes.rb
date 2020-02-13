@@ -32,6 +32,11 @@ Rails.application.routes.draw do
 
     post 'like/:id', to: 'mixtapes#like', as: 'like'
 
+    get 'preview_send_mixtape/:id', to: 'mixtapes#preview_send_mixtape', as: 'preview_send_mixtape'
+    post 'send_mixtape/:id', to: 'mixtapes#send_mixtape', as: 'send_mixtape'
+    get  'profile/loved', to: 'users#loved', as: "loved"
+
+
     ## need to do one for remove song
 
     ##get '/login' to: 'sessions#new'
