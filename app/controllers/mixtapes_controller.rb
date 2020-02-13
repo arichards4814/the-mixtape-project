@@ -4,6 +4,7 @@ class MixtapesController < ApplicationController
     before_action :get_current_user
     before_action :authorized
     before_action :find_mixtape, only: [:show, :edit, :update, :destroy]
+    before_action :badges_check
 
 def index
     @mixtapes = Mixtape.all
@@ -63,6 +64,12 @@ end
 
     def get_current_user
         @current_user = current_user
+    end
+
+    def badges_check
+        if @current_user
+            @new_badges = @current_user.badges_check(@current_user)
+        end
     end
 
 end

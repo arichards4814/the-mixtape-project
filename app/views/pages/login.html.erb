@@ -19,9 +19,6 @@
         </div>
         <% end %>
 
-          <% if @error %>
-          <h1><%= @error %></h1>
-          <% end %>
       </div>
 
     </div>
@@ -29,5 +26,20 @@
     </div>
 
   </div>
+<br>
 
+<% if @error %>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" style="background-color: rgba(255, 255, 255, 0.9); height: 150px; border-radius:25px; box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153); ">
+         <br>
+            <p style="color: #ff66cc; font-weight: bold"><%= @error %></p>
+         
+        
+    </div>
+    <div classs="col-md-3">
+    </div>
+  </div>
+  <%end%>
 

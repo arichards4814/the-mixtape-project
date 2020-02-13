@@ -2,8 +2,8 @@ class PagesController < ApplicationController
     
 
     before_action :get_current_user
-    before_action :badges_check
     before_action :authorized, except: [:main, :login, :create]
+    before_action :badges_check
 
 def main
     @notice = flash[:notice]
@@ -44,7 +44,7 @@ private
 
     def badges_check
         if @current_user
-            @current_user.badges_check(@current_user)
+            @new_badges = @current_user.badges_check(@current_user)
         end
     end
 

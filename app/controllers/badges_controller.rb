@@ -1,6 +1,7 @@
 class BadgesController < ApplicationController
 
     before_action :authorized
+    before_action :badges_check
     before_action :find_badge, only: [:show, :edit, :update]
 
     def index
@@ -43,5 +44,11 @@ class BadgesController < ApplicationController
 
     def find_badge
         @badge = Badge.find(params[:id])
+    end
+
+    def badges_check
+        if @current_user
+            @new_badges = @current_user.badges_check(@current_user)
+        end
     end
 end

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     before_action :get_current_user
     before_action :authorized, except: [:new, :create]
     before_action :find_user, only: [:show, :edit, :update, :destroy]
+    before_action :badges_check
 
     def new
         @user = User.new
@@ -14,11 +15,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.valid?
+            @user.update(current_badge: "badges/b_and_w_default.png")
             @user.save
             session[:user_id] = @user.id
-
-            BadgeUser.create(user_id: @user.id, badge_id: 25)
-
             redirect_to profile_path
         else 
             flash[:errors] = @user.errors.full_messages
@@ -90,6 +89,12 @@ class UsersController < ApplicationController
 
     def get_current_user
         @current_user = current_user
+    end
+
+    def badges_check
+        if @current_user
+            @new_badges = @current_user.badges_check(@current_user)
+        end
     end
 
 

@@ -46,3 +46,7 @@ window.updateBackground = function (e) {
     e.parentNode.classList.add("selected")
 }
 
+window.closeModal = function () {
+    document.getElementById('badge-modal').classList.add("invisible")
+}
+

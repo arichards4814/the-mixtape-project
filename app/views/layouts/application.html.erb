@@ -16,6 +16,27 @@
   </head>
 
   <body>
+
+<% if session[:user_id] %>
+  <% if @new_badges.length > 0 %>
+    <div class="transparent-card custom-modal" id="badge-modal">
+      <% if !(@new_badges.count > 1)%>
+      <h2>You've earned a new badge!</h2>
+      <% elsif @new_badges.count > 1 %>
+      <h2>You've earned new badges!</h2>
+      <% end %>
+    <% @new_badges.each do |nb|%>
+      <img src="<%=image_path "#{nb.badge.image_url}"%>" style="height:180px; width:180px">
+      <h3> <%= nb.badge.title %> </h3>
+      <h5> <%= nb.badge.description %> </h5>
+      <br>
+    <% end %>
+      <button class="btn btn-success" onclick="closeModal()">Close</button><br><a href="<%= profile_badges_path %>"><button class="btn btn-info" style="margin-top:10px; margin-bottom: 10px">See your badges</button></a>
+    </div>
+  <% end%>
+<% end %>
+
+
   <div class="row">
   <div class="col-md-2">
   </div>
