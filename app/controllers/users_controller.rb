@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 
     before_action :get_current_user
     before_action :authorized, except: [:new, :create]
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
     before_action :badges_check
+    before_action :find_user, only: [:show, :edit, :update, :destroy]
+    
 
     def new
         @user = User.new

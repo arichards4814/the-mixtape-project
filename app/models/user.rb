@@ -57,6 +57,24 @@ class User < ApplicationRecord
         if lemonade(current_user)
             badges_created << BadgeUser.create(badge_id: 13, user_id: current_user.id)
         end
+        if vanilla_popsicle(current_user)
+            badges_created << BadgeUser.create(badge_id: 24, user_id: current_user.id)
+        end
+        if chocolate_popsicle(current_user)
+            badges_created << BadgeUser.create(badge_id: 3, user_id: current_user.id)
+        end
+        if strawberry_popsicle(current_user)
+            badges_created << BadgeUser.create(badge_id: 20, user_id: current_user.id)
+        end
+        if ruby(current_user)
+            badges_created << BadgeUser.create(badge_id: 18, user_id: current_user.id)
+        end
+        if earth(current_user)
+            badges_created << BadgeUser.create(badge_id: 5, user_id: current_user.id)
+        end
+        if donut(current_user)
+            badges_created << BadgeUser.create(badge_id: 4, user_id: current_user.id)
+        end
         badges_created
     end
 
@@ -149,9 +167,9 @@ class User < ApplicationRecord
     end
     def the_lover(current_user)
         if !current_user.badges.include?(Badge.find(10))
-           current_user.mixtapes.each do |mixtape|
-                if mixtape.cassette_url == 'cassettes/valentine.png'
-                    true
+           current_user.mixtapes.select do |mixtape|
+                if mixtape.cassette_url == "cassettes/valentine.png"
+                    return true
                 end
             end
             false
@@ -159,9 +177,9 @@ class User < ApplicationRecord
     end
     def eighties(current_user)
         if !current_user.badges.include?(Badge.find(6))
-           current_user.mixtapes.each do |mixtape|
-                if mixtape.cassette_url == 'cassettes/eighties.png'
-                    true
+           current_user.mixtapes.select do |mixtape|
+                if mixtape.cassette_url == "cassettes/eighties.png"
+                    return true
                 end
             end
             false
@@ -183,13 +201,57 @@ class User < ApplicationRecord
     def lemonade(current_user)
         if !current_user.badges.include?(Badge.find(13))
             current_user.mixtapes.each do |mixtape|
-                mixtape.songs.each do |song|    
+                mixtape.songs.select do |song|    
                     if song.artist_name == "Beyoncé" || "Beyonce"
-                        true
+                        return true
                     end
                 end
              end
             false
+        end
+    end
+
+    def vanilla_popsicle(current_user)
+            if !current_user.badges.include?(Badge.find(24))
+                if current_user.likes.count == 5
+                    true
+                end
+            end
+        
+    end
+    def chocolate_popsicle(current_user)
+        if !current_user.badges.include?(Badge.find(3))
+            if current_user.likes.count == 10
+                true
+            end
+        end
+    end
+    def strawberry_popsicle(current_user)
+        if !current_user.badges.include?(Badge.find(20))
+            if current_user.likes.count == 15
+                true
+            end
+        end
+    end
+    def donut(current_user)
+        if !current_user.badges.include?(Badge.find(18))
+            if current_user.likes.count == 25
+                true
+            end
+        end
+    end
+    def ruby(current_user)
+        if !current_user.badges.include?(Badge.find(5))
+            if current_user.likes.count == 50
+                true
+            end
+        end
+    end
+    def earth(current_user)
+        if !current_user.badges.include?(Badge.find(4))
+            if current_user.badges.count ==5
+                true
+            end
         end
     end
 

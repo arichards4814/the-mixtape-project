@@ -3,8 +3,9 @@ class MixtapesController < ApplicationController
     
     before_action :get_current_user
     before_action :authorized
-    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like, :preview_send_mixtape, :send_mixtape]
     before_action :badges_check
+    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like, :preview_send_mixtape, :send_mixtape]
+    
 
 def index
     @mixtapes = Mixtape.all
@@ -52,12 +53,13 @@ def like
 end
 
 def preview_send_mixtape
-
+    @email_sent = flash[:email_sent]
 end
 
 def send_mixtape
 
     UserMailer.send_mixtape(@current_user, params[:recipient], @mixtape).deliver_now
+    flash[:email_sent] = "Email Sent"
     redirect_to preview_send_mixtape_path
 end
 

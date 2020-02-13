@@ -1,28 +1,39 @@
 
-<%# need to show what the mixtape looks like%>
-<%# need a foerm %>
+
 
 <%# flash%>
-
+<br>
 <div class="row">
 <div class="col-md-4">
 </div>
-<div class="col-md-4 transparent-card" style="width:350px">
-      <img src="<%= image_path @mixtape.background_url %>" alt="bkground" id="background">
-            <div class = "cassette" style="position: absolute; top:10%; height:171px; width:100% ">
+<div class="col-md-4 transparent-card" style="padding:10px" >
+      <img src="<%= image_path @mixtape.background_url %>" alt="bkground" id="background" style="width:100%">
+            <div class = "cassette" style="position: absolute; left:0; top:10%; height:171px; width:100% ">
                 <img src="<%= image_path @mixtape.cassette_url %>" style="position: absolute; top:10%; width:100%; height \: " alt="bkground" id="cassette">
-                <div id="handwriting" style="position: absolute; left: 28%; top:29%; height:20px; ">
+                <div id="handwriting" style="position: absolute; left: 28%; top:34%; height:20px; ">
                     <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"><%= @mixtape.title %></h2>
                 </div>
             </div>
 
-<%= form_tag send_mixtape_path do %>
-  <%= text_field_tag :recipient %>
-  <%= submit_tag "Send Mixtape"%>
+            <%= form_tag send_mixtape_path, method: "post", html: { class: "form" } do %>
+ <div class="form-group col-xs-4" style="text-align:center; padding-top:6px">
+   <%= email_field_tag(:recipient, "", placeholder: "Enter recipient email", class: "form-control") %>
+ <%= submit_tag "Send Mix", class: "btn btn-danger"%>
+ </div>
+ 
 <% end %>
 </div>
 <div class="col-md-4">
 </div>
 </div>
 
+  <% if @email_sent %>
+    <div class="transparent-card custom-modal" style="padding-top:10px;id="badge-modal">
+      <h2>Your email was sent!</h2>
+      <img src="<%= image_path "email_rainbow.png"%>" style="height:180px; width:180px">
+      
+      <br>
+      <button class="btn btn-success" onclick="closeModal()">Close</button><br><a href="<%= profile_path %>"><button class="btn btn-info" style="margin-top:10px; margin-bottom: 10px">Back To Your Profile</button></a>
+    </div>
+<% end %>
 
