@@ -3,14 +3,15 @@
 <div class="row">
     <div class="col-md-3">
     </div>
-    <div class="col-md-6" style="background-color: rgba(255, 255, 255, 0.9); height: 400px; border-radius:25px; box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153); ">
-    
+    <div class="col-md-6" style="background-color: rgba(227,242,253,.9); height: 400px; border-radius:25px; box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153); ">
+    <img style = " position:absolute; top: 50px; width:90%" src="<%= image_path 'mixtape_logo'%>">
     
 <br><br>
-<% if @notice %>
-    <h3> <%= @notice %> </h3>
-    <% end %>
     <br><br><br><br><br><br><br><br><br><br>
+
+<% if @notice %>
+    <h3 style="text-align:center"> <%= @notice %> </h3>
+    <% end %>
 <% if session[:user_id] %>
         <div style="text-align:center">
             <h4>You are logged in as: <%= @current_user.user_name %> </h4>

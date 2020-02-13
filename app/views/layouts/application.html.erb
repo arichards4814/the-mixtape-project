@@ -44,8 +44,11 @@
   </div>
   <div class="col-md-8">
     <% if session[:user_id] %>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">The Mixtape</a>
+    <nav class="navbar navbar-light justify-content-between rounded" style="background-color: #e3f2fd;
+  box-shadow: 5px 10px 8px;">
+    <a class="navbar-brand" href="<%= root_path %>"><img style = "height:50px" src="<%= image_path 'mixtape_logo'%>"></a>
+    
+    
       <form class="form-inline">
         <a href="<%= root_path %>" ><img style="height:50px" src="<%= image_path "buttons/home.png"%>"></a> 
         <a href="<%= mixtapes_path %>"><img style="height:50px" src="<%= image_path "buttons/cassette.png"%>"></a>

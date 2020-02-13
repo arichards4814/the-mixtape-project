@@ -51,9 +51,10 @@
 
 }
 
-.artist-card, a:link, a:visited, a:hover {
-    color:white;
+.artist-card, a:link, a:visited,  {
+    color:rgb(47, 153, 144);
 }
+
 
 .add-song-card {
 
@@ -120,4 +121,11 @@ box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153);
     transform: translate(-50%);
     z-index:1;
     text-align: center;
+}
+
+.prof-nav {
+font-size:30px;
+font-family: 'Permanent Marker',
+cursive;
+
 }
