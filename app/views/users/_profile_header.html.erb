@@ -15,10 +15,7 @@
 
 <a href="<%= profile_badges_path %>"><p style="position:absolute; left:50%" class="prof-nav">Badges</p></a> <a href="<%= profile_path %>"><p style="position:absolute;" class="prof-nav">Mixtapes</p></a>
 <a href="<%= loved_path %>"><i class="fas fa-heart" style="font-size:40px; position:relative; left: 450px; bottom:0px"></i></a>
-<span style="position:relative; left:75%; bottom:5px" class="prof-nav">Likes: 
-<%= @current_user.mixtapes.map{|m|m.likes.count}.inject(:+) %></span>
-<span style="position:relative; left:85%; bottom:5px" class="prof-nav">
-Liked: <%= @current_user.likes.count %></span>
+
 </div>
 </div>
 

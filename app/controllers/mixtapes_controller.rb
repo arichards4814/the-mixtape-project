@@ -4,15 +4,16 @@ class MixtapesController < ApplicationController
     before_action :get_current_user
     before_action :authorized
     before_action :badges_check
-    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like, :preview_send_mixtape, :send_mixtape]
-    
+    before_action :find_mixtape, only: [:show, :edit, :update, :destroy, :like, :preview_send_mixtape, :send_mixtape, :spotify_add_playlist]
+    before_action :authenticate, only: [:spotify_add_playlist]
 
 def index
     @mixtapes = sorted
 end
 
 def show 
-
+    @error = flash[:error]
+    @success_message = flash[:success_message]
 end
 
 def new
@@ -68,6 +69,40 @@ def destroy
     redirect_to mixtapes_path
 end
 
+def spotify
+        spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+        session[:spotify_user] = spotify_user.to_hash
+        redirect_to spotify_landing_path
+end
+
+def spotify_add_playlist
+    
+    spotify_user = RSpotify::User.new(session[:spotify_user])
+
+        if @mixtape.songs.length > 0 
+            playlist = spotify_user.create_playlist!(@mixtape.title)
+            s = []
+            @mixtape.songs.each do |song|
+            
+                s << RSpotify::Track.find(song.song_id)
+                
+            end
+            playlist.add_tracks!(s)
+            flash[:success_message] = "You have successfully added this mixtape to your
+            Spotify account as a playlist!"
+            redirect_to mixtape_path(@mixtape)
+        else
+            flash[:error] = "This mixtape has no songs."
+            redirect_to mixtape_path(@mixtape)
+        end
+
+        
+end
+
+def spotify_landing
+
+end
+
 private
 
 def mixtapes_params
@@ -92,6 +127,11 @@ end
     def sorted
         @mixtapes = Mixtape.all
         @mixtapes.sort_by{|mixtape| mixtape.likes.count}.reverse
+    end
+
+
+    def authenticate
+        RSpotify.authenticate("45935d113e3d4f9a9e8c59ac455ccd0e","57d0101195234b9e84b4e9946d5af3ba")
     end
 
 end

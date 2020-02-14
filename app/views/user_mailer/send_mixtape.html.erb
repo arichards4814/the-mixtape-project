@@ -3,6 +3,13 @@
 <h2>Title: <%= @mixtape.title %></h2>
 <h3>Message: <%= @mixtape.message %></h3>
 
+<div style="height:171px; width:100%">
+        <%= image_tag(attachments['mixtape.png'].url, style: "height: 100%")%>
+        <div id="handwriting" style="position: absolute; left: 28%; top:29%; height:20px; ">
+            <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center" id="message-text"><%= @mixtape.title %></h2>
+        </div>
+</div>
+
 <%= image_tag(attachments['mixtape.png'].url, style: "height: 300px")%>
 
 

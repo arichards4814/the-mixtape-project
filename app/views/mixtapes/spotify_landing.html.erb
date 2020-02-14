@@ -1,0 +1,21 @@
+
+<br><br><br>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" style="background-color: rgba(227,242,253,.9); height: 400px; border-radius:25px; box-shadow: 0 4px 8px 0 rgb(102, 102, 153), 0 6px 20px 0 rgb(102, 102, 153); text-align:center; ">
+    <br><br><br><br>
+    <i class="fab fa-spotify" style="font-size:100px"></i>
+    
+<br><br>
+    
+
+    <% if session[:spotify_user] %>
+            <div style="text-align:center">
+                <h4>You have successfully logged in.</h4>
+                <%= button_to "Back to Profile", profile_path, :method => 'get', :class => "btn btn-success"%>
+            </div>
+    <% end %>
+
+    </div>
+</div>

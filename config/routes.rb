@@ -36,6 +36,11 @@ Rails.application.routes.draw do
     post 'send_mixtape/:id', to: 'mixtapes#send_mixtape', as: 'send_mixtape'
     get  'profile/loved', to: 'users#loved', as: "loved"
 
+    get 'auth/spotify/callback', to: 'mixtapes#spotify'
+    post '/spotify_add_playlist/:id', to: 'mixtapes#spotify_add_playlist', as: "spotify_add_playlist"
+
+    get '/spotify_landing', to: 'mixtapes#spotify_landing', as: "spotify_landing"
+
 
     ## need to do one for remove song
 

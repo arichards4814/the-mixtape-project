@@ -36,7 +36,7 @@ def songs
 end
 
 def add_song
-
+    
     new_song = Song.create(song_id: params[:song_id] , name: params[:name]  , preview_url: params[:preview_url], artist_name: params[:artist_name], album: params[:album], artist_url: params[:artist_url], album_url: params[:album_url])
     ##findby or create here
 

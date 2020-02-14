@@ -54,9 +54,9 @@ class User < ApplicationRecord
         if internet_god(current_user)
             badges_created << BadgeUser.create(badge_id: 14, user_id: current_user.id)
         end
-        if lemonade(current_user)
-            badges_created << BadgeUser.create(badge_id: 13, user_id: current_user.id)
-        end
+        # if lemonade(current_user)
+        #     badges_created << BadgeUser.create(badge_id: 13, user_id: current_user.id)
+        # end
         if vanilla_popsicle(current_user)
             badges_created << BadgeUser.create(badge_id: 24, user_id: current_user.id)
         end
@@ -201,7 +201,7 @@ class User < ApplicationRecord
     def lemonade(current_user)
         if !current_user.badges.include?(Badge.find(13))
             current_user.mixtapes.each do |mixtape|
-                mixtape.songs.select do |song|    
+                mixtape.songs.each do |song|    
                     if song.artist_name == "Beyoncé" || "Beyonce"
                         return true
                     end
