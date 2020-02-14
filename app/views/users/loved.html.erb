@@ -14,15 +14,16 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="card" style="width: 18rem; margin-top: 20px; padding: 20px; background-color: #ccccff">
           <a href="<%= mixtape_path(mixtape.id) %>"><img class="card-img-top" src="<%= image_path mixtape.cassette_url %>" style = "position: relative; height:100%; background-image: url('<%= image_path(url) %>');" alt="Cassette"></a>
-          <div id="handwriting" style="position: absolute; left: 28%; top:11%; height:20px; ">
-                <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center; font-size:25px" id="message-text"><%= mixtape.title %><h2>
+          <div id="handwriting" style="position: absolute; left: 28%; top:13%; height:20px; ">
+                <h2 style= "font-family: 'Permanent Marker', cursive; text-align: center; font-size:23px" id="message-text"><%= mixtape.title %><h2>
         </div>
           <div class="card-body" style = "height: 100px">
             <p class="card-text"><%= mixtape.message%></p>
             </div>
             <div>
              <p style = "text-align: center;  position: absolute; right: 20px; bottom: 5px"> <i class="fas fa-heart" style="font-size:20px"></i>  <%= mixtape.likes.count %></p>
-            
+            <p style="font-size: 10px; position: absolute; bottom: 7px;">Created by: 
+            <%= link_to mixtape.user.user_name, user_path(mixtape.user) %></p>
             </div>
       </div>
     </div>

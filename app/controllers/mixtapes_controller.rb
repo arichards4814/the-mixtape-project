@@ -8,7 +8,7 @@ class MixtapesController < ApplicationController
     
 
 def index
-    @mixtapes = Mixtape.all
+    @mixtapes = sorted
 end
 
 def show 
@@ -87,6 +87,11 @@ end
         if @current_user
             @new_badges = @current_user.badges_check(@current_user)
         end
+    end
+
+    def sorted
+        @mixtapes = Mixtape.all
+        @mixtapes.sort_by{|mixtape| mixtape.likes.count}.reverse
     end
 
 end

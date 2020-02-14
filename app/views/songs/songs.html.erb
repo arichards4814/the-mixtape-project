@@ -4,22 +4,22 @@
 <div class="col-md-2">
 
 </div>
-<div class="col-md-3" style="height:450px; width:350px; background-color:#47476b">
+<div class="col-md-3" style="height:450px; width:350px; background-color: rgba(204, 255, 204, .9);">
 <img src="<%= @album.images[0]["url"]%>" style="height:200px; width:200px; text-align:center; margin-top:20px; margin-left: 70px;">
 <div style="padding-top:20px">
-<h2 style="color:white; text-align:center"><%= @album.artists[0].name %></h2>
-<h3 style="color:white; text-align:center"><%= @album.name %></h3>
+<h2 style="color: #1e7994; text-align:center"><%= @album.artists[0].name %></h2>
+<h3 style="color: #1e7994; text-align:center"><%= @album.name %></h3>
 <a href="<%= search_path(flash[:mixtape_id]) %>" style="position:absolute; bottom:7%; left:43%"><i class="fas fa-arrow-alt-circle-left" style="font-size: 45px; color:#ff99cc;"></i></a>
 </div>
 
 </div>
 <div class="col-md-5">
-<div class="transparent-card" style="text-align:center"> <h2> Songs: </h2></div>
+<div class="transparent-card" style="text-align:center; background-color: rgba(204, 255, 204, .9);"> <h2> Songs: </h2></div>
 
 <% @album.tracks.each do |track| %>
-    <div style="margin: 15px; background-color:#47476b; height: 100px; border-radius:10px">
+    <div style="margin: 15px; background-color: rgba(204, 204, 255, .9); height: 100px; border-radius:10px">
         <div class="row">
-        <div class="col-md-8" style="color:white; padding-left: 10%">
+        <div class="col-md-8" style="color: #1e7994; padding-left: 10%">
             <p style="margin-top:20px; font-size: 20px"><%= track.name %></p>
             <% track.artists.each do |artist| %>
             <span> - <%= artist.name %> - </span>

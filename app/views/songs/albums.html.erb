@@ -5,7 +5,7 @@
         <a href="<%= search_path(flash[:mixtape_id]) %>"><i class="fas fa-arrow-alt-circle-left" style="font-size: 45px; color:#ff99cc;"></i></a>
    
 </div>
- <div class="col-md-4 transparent-card">
+ <div class="col-md-4 transparent-card" style="background-color: rgba(204, 255, 204, .9); text-align:center;">
  <h2>Albums:</h2>
 </div>
 <div class="col-md-4">
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-6 artist-card" style="background-color:#47476b;">
+                <div class="col-md-6 artist-card" style="background-color: rgba(204, 204, 255, .9);">
                     <% if album.images[0] %>
                     <img style="height:160px; width:160px; padding:10px" src=<%= album.images[0]["url"] %>>
                     <% end %>

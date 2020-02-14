@@ -11,8 +11,8 @@
             </div>
         </div>
 </div>
-<div class="col-md-5" style="background-color: #ccffcc; border-radius:10px; box-shadow:10px">
-<br><h1 style="text-align: center">Edit/Add Songs Mixtape: </h1>
+<div class="col-md-5" style="background-color: rgba(204, 255, 204, .9); border-radius:10px; box-shadow:10px">
+<br><h1 class="marker" style="text-align: center">Edit/Add Songs Mixtape: </h1>
 <%= render 'form'%>
 <div style="text-align: center">
 <%= button_to "Delete Mixtape", @mixtape, :method => "delete", :class => "btn btn-danger" %>
@@ -26,14 +26,16 @@
 <div class="row" style="height:200px;">
     <div class="col-md-3">
     </div>
-    <div class="col-md-6 transparent-card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="col-md-6 transparent-card" style="background-color: rgba(204, 204, 255, .9); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <div class="row" >
         <div class="col-md-3">
-            <p><img src="<%= song.artist_url%>" style="height:180px; width:180px;padding-top:7px">
+            <p><img class="album-art" src="<%= song.artist_url%>" style="height:180px; width:180px;padding-top:7px">
         </div>
-        <div class="col-md-3">
-            <%= song.name %><br>
-            <%= song.album %>
+        <div class="col-md-7" style="padding: 20px; padding-left: 35px">
+
+            <span style="font-size:30px"><%= song.name %></span> <br>
+            <%= song.album %><br>
+            <%= song.artist_name %>
         </div>
     </div>
     </div>

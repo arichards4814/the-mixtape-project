@@ -11,7 +11,7 @@
                 </div>
             </div>
     </div>
-<div class="col-md-5" style="background-color: #ccccff; border-radius:10px; box-shadow:10px; padding-left: 30px">
+<div class="col-md-5" style="background-color: rgba(204, 204, 255, .9); border-radius:10px; box-shadow:10px; padding-left: 30px">
 <br>
 <h4>Created by: <span class="marker"><%= link_to @mixtape.user.user_name, user_path(@mixtape.user.id) %></span></h4>
 <h2 >Title: <span class="marker"><%= @mixtape.title %></span><h2>
@@ -56,14 +56,16 @@
 <div class="row" style="height:200px;">
     <div class="col-md-3">
     </div>
-    <div class="col-md-6 transparent-card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="col-md-6 transparent-card" style="background-color: rgba(204, 255, 204, .9); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="row">
             <div class="col-md-3">
             <p><img src="<%= song.artist_url%>" style="height:180px; width:180px;padding-top:7px">
             </div>
-             <div class="col-md-3">
-            <%= song.name %><br>
-            <%= song.album %>
+             <div class="col-md-4" style="padding: 20px; padding-left: 35px">
+
+            <span style="font-size:30px"><%= song.name %></span> <br>
+            <%= song.album %><br>
+            <%= song.artist_name %>
         </div>
         </div>
     </div>

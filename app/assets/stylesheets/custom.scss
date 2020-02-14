@@ -46,13 +46,12 @@
 
     border: 4px solid grey;
     border-radius: 8px;
-    background-color: #47476b;
-    
+    background-color: rgba(204, 204, 255, .9)
 
 }
 
 .artist-card, a:link, a:visited  {
-    color:rgb(47, 153, 144);
+    color: black;
 }
 
 
@@ -132,4 +131,9 @@ cursive;
 
 .marker {
     font-family: 'Permanent Marker',
+}
+
+.album-art:hover {
+
+    cursor:pointer;
 }

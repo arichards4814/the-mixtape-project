@@ -49,4 +49,3 @@ window.updateBackground = function (e) {
 window.closeModal = function () {
     document.getElementById('badge-modal').classList.add("invisible")
 }
-

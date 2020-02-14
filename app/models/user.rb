@@ -264,6 +264,6 @@ class User < ApplicationRecord
                 liked_tapes << Mixtape.find(like.mixtape_id)
             end
         end
-        liked_tapes
+        liked_tapes.sort_by{|tape| tape.likes.count}.reverse
     end
 end

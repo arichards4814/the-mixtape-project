@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     def profile
         @current_user = current_user
-
+        @current_user_sorted = sorted
     end
 
     def badges
@@ -104,5 +104,8 @@ class UsersController < ApplicationController
         end
     end
 
+    def sorted 
+        @current_user.mixtapes.sort_by{|mixtape| mixtape.likes.count }.reverse
+    end
 
 end
