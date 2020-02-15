@@ -131,7 +131,10 @@ end
 
 
     def authenticate
-        RSpotify.authenticate("45935d113e3d4f9a9e8c59ac455ccd0e","57d0101195234b9e84b4e9946d5af3ba")
+        spotify_key = ENV['spotify_api_key']
+        spotify_secret = ENV['spotify_api_secret']
+
+        RSpotify.authenticate(spotify_key,spotify_secret) 
     end
 
 end

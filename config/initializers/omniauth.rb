@@ -1,5 +1,7 @@
 require 'rspotify/oauth'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :spotify, "45935d113e3d4f9a9e8c59ac455ccd0e", "57d0101195234b9e84b4e9946d5af3ba", scope: 'playlist-modify-public'
+        spotify_key = ENV['spotify_api_key']
+        spotify_secret = ENV['spotify_api_secret']
+        provider :spotify, spotify_key, spotify_secret, scope: 'playlist-modify-public'
 end
