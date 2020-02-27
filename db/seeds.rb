@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Badge.create(image_url: "badges/beef.png", title: "Beef", description: "Beef.")
 Badge.create(image_url: "badges/chocolate_icecream.png", title: "Chocolate Icecream", description: "Receive 10 likes on a mixtape.")
 Badge.create(image_url: "badges/chocolate_popsicle.png", title: "Chocolate Popsicle", description: "Give 10 likes on mixtapes.")
 Badge.create(image_url: "badges/donut.png", title: "Donut", description: "Give 25 likes on mixtapes.")
@@ -56,3 +57,8 @@ Badge.create(image_url: "badges/vanilla_icecream.png", title: "Vanilla Icecream"
 
 
 Badge.create(image_url: "badges/vanilla_popsicle.png", title: "Vanilla Popsicle", description: "Give 5 likes on mixtapes.")
+
+
+
+
+Badge.create(image_url: "badges/default.png", title: "Welcome", description: "Welcome to the family.")
